@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">ASarTaLine</string>
     <string name="action_settings">Settings</string>
+    <string name="txt_greeting">Good afternoon, Anish</string>
+    <string name="txt_time_to_do">It\'s time for lunch</string>
+    <string name="txt_search_restaruant">Search Restaruant</string>
+    <string name="txt_chinese">Chinese</string>
+    <string name="txt_tacos">Tacos</string>
+    <string name="txt_burger">Burger</string>
+    <string name="txt_donut">Donut</string>
+    <string name="offers">Offers</string>
 </resources>

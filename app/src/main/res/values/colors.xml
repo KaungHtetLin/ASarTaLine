@@ -8,5 +8,12 @@
     <color name="secondary_text">#757575</color>
     <color name="icons">#212121</color>
     <color name="divider">#BDBDBD</color>
+
+    <color name="grey_2">#b3b3b3</color>
+    <color name="grey">#a3a3a3</color>
+    <color name="white_full">#fff</color>
+    <color name="black_full">#000</color>
+    <color name="transparent">#00000000</color>
+    <color name="foreground_transparent">#41000000</color>
 </resources>
 
