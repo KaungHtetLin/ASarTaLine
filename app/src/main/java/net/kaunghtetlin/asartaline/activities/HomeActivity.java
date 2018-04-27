@@ -1,22 +1,32 @@
-package net.kaunghtetlin.asartaline;
+package net.kaunghtetlin.asartaline.activities;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import net.kaunghtetlin.asartaline.R;
+import net.kaunghtetlin.asartaline.adapters.OffersAdapter;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     @BindView(R.id.appbar_layout)
     AppBarLayout appBarLayout;
+
+    @BindView(R.id.rv_offers)
+    RecyclerView rvOffers;
+
+    OffersAdapter mOffersAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +37,7 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        //appbar's color transparent when expand
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             int scrollRange = -1;
             boolean isShow = false;
@@ -45,6 +56,13 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //RecyclerView for Offers
+        rvOffers.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
+                LinearLayoutManager.VERTICAL, false));
+
+        mOffersAdapter = new OffersAdapter(getApplicationContext());
+        rvOffers.setAdapter(mOffersAdapter);
     }
 
     @Override

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="net.kaunghtetlin.asartaline.HomeActivity">
+    tools:context="net.kaunghtetlin.asartaline.activities.HomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar_layout"
@@ -120,8 +120,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/margin_large_n"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:descendantFocusability="blocksDescendants"
+            android:layout_marginTop="@dimen/margin_large_n">
 
             <LinearLayout
                 android:id="@+id/ll_category"
@@ -285,6 +285,14 @@
                 android:textColor="@color/secondary_text"
                 android:textSize="@dimen/text_regular_2x"
                 android:textStyle="bold" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_offers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_offers"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:nestedScrollingEnabled="false" />
 
         </RelativeLayout>
 
