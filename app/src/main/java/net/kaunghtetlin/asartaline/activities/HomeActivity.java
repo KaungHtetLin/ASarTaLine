@@ -1,32 +1,45 @@
 package net.kaunghtetlin.asartaline.activities;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import net.kaunghtetlin.asartaline.R;
 import net.kaunghtetlin.asartaline.adapters.OffersAdapter;
+import net.kaunghtetlin.asartaline.components.EmptyViewPod;
+import net.kaunghtetlin.asartaline.components.SmartRecyclerView;
+import net.kaunghtetlin.asartaline.data.models.OffersModel;
+import net.kaunghtetlin.asartaline.data.vos.OffersVO;
+import net.kaunghtetlin.asartaline.delegates.OfferItemDelegate;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends BaseActivity {
+public class HomeActivity extends BaseActivity implements OfferItemDelegate {
 
     @BindView(R.id.appbar_layout)
     AppBarLayout appBarLayout;
 
     @BindView(R.id.rv_offers)
-    RecyclerView rvOffers;
+    SmartRecyclerView rvOffers;
+
+    @BindView(R.id.vp_empty_offers)
+    EmptyViewPod vpEmptyOffers;
 
     OffersAdapter mOffersAdapter;
+    OffersModel mOffersModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +74,18 @@ public class HomeActivity extends BaseActivity {
         rvOffers.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false));
 
-        mOffersAdapter = new OffersAdapter(getApplicationContext());
+        mOffersAdapter = new OffersAdapter(getApplicationContext(), this);
+        rvOffers.setEmptyView(vpEmptyOffers);
         rvOffers.setAdapter(mOffersAdapter);
+
+        mOffersModel = ViewModelProviders.of(this).get(OffersModel.class);
+        mOffersModel.initDatabase(getApplicationContext());
+        mOffersModel.getOffers().observe(this, new Observer<List<OffersVO>>() {
+            @Override
+            public void onChanged(@Nullable List<OffersVO> offersVOs) {
+                mOffersAdapter.setNewData(offersVOs);
+            }
+        });
     }
 
     @Override
@@ -85,5 +108,11 @@ public class HomeActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTapOffer(long offerId) {
+        Intent detailsIntent = DetailsActivity.newIntent(getApplicationContext(),offerId);
+        startActivity(detailsIntent);
     }
 }

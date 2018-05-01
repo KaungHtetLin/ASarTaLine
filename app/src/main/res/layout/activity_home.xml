@@ -120,14 +120,16 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:descendantFocusability="blocksDescendants"
-            android:layout_marginTop="@dimen/margin_large_n">
+            android:layout_marginTop="@dimen/margin_large_n"
+            android:descendantFocusability="blocksDescendants">
 
             <LinearLayout
                 android:id="@+id/ll_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true"
                 android:weightSum="4">
 
                 <LinearLayout
@@ -286,13 +288,26 @@
                 android:textSize="@dimen/text_regular_2x"
                 android:textStyle="bold" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_offers"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/iv_offers"
-                android:layout_marginTop="@dimen/margin_medium_2"
-                android:nestedScrollingEnabled="false" />
+                android:layout_below="@id/iv_offers">
+
+                <net.kaunghtetlin.asartaline.components.SmartRecyclerView
+                    android:id="@+id/rv_offers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:nestedScrollingEnabled="false" />
+
+                <include
+                    android:id="@+id/vp_empty_offers"
+                    layout="@layout/view_pod_empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
 
         </RelativeLayout>
 

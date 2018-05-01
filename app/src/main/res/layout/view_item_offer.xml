@@ -8,95 +8,94 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_medium"
-        android:elevation="2dp"
-        android:translationZ="2dp"
-        app:cardBackgroundColor="@color/white_full">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal"
-            android:weightSum="6">
+        <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cardview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium"
+            android:elevation="2dp"
+            android:translationZ="2dp"
+            app:cardBackgroundColor="@color/white_full">
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2.3"
-                android:scaleType="centerCrop"
-                android:src="@drawable/romantic_dinner_setting" />
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal">
 
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="3.7">
+                <ImageView
+                    android:id="@+id/iv_hero_image"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/romantic_dinner_setting" />
 
-                <TextView
-                    android:id="@+id/tv_offer_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium_2"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:text="Casa Pop"
-                    android:textColor="@color/primary_text"
-                    android:textSize="@dimen/text_regular_3x"
-                    android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="match_parentx"
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tv_offer_category"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_offer_name"
-                    android:layout_marginStart="@dimen/margin_medium_2"
-                    android:text="Cafe, Italian, Chinese"
-                    android:textColor="@color/secondary_text"
-                    android:textSize="@dimen/text_regular" />
+                    <net.aungpyaephyo.mmtextview.components.MMTextView
+                        android:id="@+id/tv_offer_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_medium_2"
+                        android:layout_marginTop="@dimen/margin_medium"
+                        android:text="Casa Pop"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/offer_name_size"
+                        android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tv_offer_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_offer_category"
-                    android:layout_marginStart="@dimen/margin_medium_2"
-                    android:text="Cost $300 for one"
-                    android:textColor="@color/secondary_text"
-                    android:textSize="@dimen/text_regular" />
+                    <net.aungpyaephyo.mmtextview.components.MMTextView
+                        android:id="@+id/tv_offer_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_offer_name"
+                        android:layout_marginStart="@dimen/margin_medium_2"
+                        android:text="Cafe, Italian, Chinese"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/text_regular" />
 
-                <RatingBar
-                    android:id="@+id/rb_offer"
-                    style="?android:ratingBarStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/margin_medium"
-                    android:layout_marginStart="@dimen/margin_medium_2"
-                    android:isIndicator="true"
-                    android:numStars="5"
-                    android:progressTint="@color/primary"
-                    android:rating="3"
-                    android:stepSize="0.1" />
+                    <net.aungpyaephyo.mmtextview.components.MMTextView
+                        android:id="@+id/tv_offer_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_offer_category"
+                        android:layout_marginStart="@dimen/margin_medium_2"
+                        android:text="Cost $300 for one"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/text_regular" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_margin="@dimen/margin_medium"
-                    android:text="@string/txt_view_details"
-                    android:textColor="@color/primary"
-                    android:textSize="@dimen/text_regular" />
+                    <RatingBar
+                        android:id="@+id/rb_offer"
+                        style="?android:ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="@dimen/margin_medium"
+                        android:layout_marginStart="@dimen/margin_medium_2"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:progressTint="@color/primary"
+                        android:rating="3"
+                        android:stepSize="0.1" />
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="@dimen/margin_medium"
+                        android:text="@string/txt_view_details"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/text_regular" />
 
-        </LinearLayout>
+                </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
     </LinearLayout>
+
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -111,8 +110,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:elevation="5dp"
             android:layout_gravity="center"
+            android:elevation="5dp"
             android:text="4.6"
             android:textColor="@color/white_full"
             android:textSize="@dimen/text_regular"

@@ -35,5 +35,6 @@
     <!--App Specific ration-->
     <dimen name="big_padding">64dp</dimen>
     <dimen name="location_margin">12dp</dimen>
+    <dimen name="offer_name_size">18sp</dimen>
 
 </resources>
